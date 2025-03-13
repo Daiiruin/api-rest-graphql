@@ -3,3 +3,4 @@ dist
 .env
 Dockerfile
 .git
+generatePassword.js
