@@ -29,13 +29,18 @@ export const login = async (req: Request, res: Response): Promise<void> => {
   }
 
   const accessToken = jwt.sign(
-    { id: user.id, username: user.username, role: user.role },
+    {
+      id: user.id,
+      username: user.username,
+      role: user.role,
+      aud: "type-access",
+    },
     process.env.JWT_SECRET as string,
     { expiresIn: "1h" }
   );
 
   const refreshToken = jwt.sign(
-    { id: user.id, username: user.username, role: user.role },
+    { id: user.id, aud: "type-refresh" },
     process.env.JWT_SECRET as string,
     { expiresIn: "7d" }
   );

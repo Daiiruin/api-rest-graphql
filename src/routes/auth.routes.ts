@@ -23,7 +23,7 @@ const router = Router();
 
 /**
  * @swagger
- * /auth/login:
+ * /api/auth/login:
  *   post:
  *     summary: Connexion utilisateur
  *     tags: [Authentification]
@@ -73,7 +73,7 @@ router.post("/login", login);
 
 /**
  * @swagger
- * /auth/register:
+ * /api/auth/register:
  *   post:
  *     summary: Inscription d'un nouvel utilisateur
  *     tags: [Authentification]

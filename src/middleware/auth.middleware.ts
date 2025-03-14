@@ -26,6 +26,11 @@ export const authenticateJWT = (
         .json({ message: "Token invalide", error: err.message });
     }
 
+    if ((decoded as any).aud !== "type-access") {
+      return res
+        .status(403)
+        .json({ message: "Accès interdit avec un Refresh Token" });
+    }
     req.user = decoded as User;
     next();
   });
